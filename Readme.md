@@ -1,47 +1,145 @@
-# AI Reflection System 🚀
+# 🚀 AI Reflection System
 
-This project implements a multi-step AI pipeline where the model:
+A multi-step AI pipeline that **generates, critiques, and improves its own responses** using LLMs.
 
-1. Generates an answer
-2. Reviews its own response
-3. Improves the answer based on feedback
+---
 
-## Tech Stack
+## 📌 Overview
 
-* FastAPI
-* OpenRouter API
-* Python
+This project demonstrates how to build **self-improving AI systems** by structuring multiple reasoning steps instead of relying on a single response.
 
-## How it works
+---
 
-User → AI Answer → AI Review → Improved Answer
+## 🧠 Key Idea
 
-## Run locally
+Instead of asking AI for a single answer:
 
-```bash
+```text
+User → AI → Final Answer ❌
+```
+
+We build a smarter system:
+
+```text
+User → Writer → Critic → Improved Answer ✅
+```
+
+---
+
+## 📅 Project Progress
+
+### 🔹 Day 1 — Reflection System
+
+* Built a basic AI pipeline
+* AI generates → reviews → improves
+* Single model handles all steps
+
+---
+
+### 🔹 Day 2 — Writer + Critic System
+
+* Introduced **multi-agent architecture**
+* Separated roles:
+
+  * ✍️ Writer → generates answer
+  * 🧠 Critic → analyzes and finds issues
+  * 🔁 Improver → refines the answer
+* Used **LangChain chains** for modular design
+
+---
+
+## ⚙️ Tech Stack
+
+* 🐍 Python
+* 🔗 LangChain
+* 🌐 OpenRouter API
+* ⚡ Requests
+
+---
+
+## 🧩 Project Structure
+
+```
+ai-reflection-system/
+ ├── day1_reflection_system/
+ │    └── main.py
+ ├── day2_writer_critic/
+ │    └── day2.py
+ ├── README.md
+ ├── requirements.txt
+```
+
+---
+
+## 🚀 How to Run
+
+### 1. Clone the repo
+
+```
+git clone https://github.com/agarwalpranav0711/ai-reflection-system.git
+cd ai-reflection-system
+```
+
+---
+
+### 2. Install dependencies
+
+```
 pip install -r requirements.txt
-uvicorn main:app --reload
 ```
 
-## Endpoint
+---
+
+### 3. Add API Key
+
+Create a `.env` file:
 
 ```
-/ask?question=your_question_here
+OPENROUTER_API_KEY=your_api_key_here
 ```
 
-## Example
+---
 
-Input:
-What is Machine Learning?
+### 4. Run
 
-Output:
+#### Day 1:
 
-* Answer
-* Review
-* Improved Answer
+```
+python day1_reflection_system/main.py
+```
 
-## Future Improvements
+#### Day 2:
 
-* Iterative improvement loop
-* Score-based refinement
-* Memory system
+```
+python day2_writer_critic/day2.py
+```
+
+---
+
+## 🔥 Example Flow
+
+```
+Question → Writer → Critic → Improved Answer
+```
+
+---
+
+## 🧠 What You Learn From This Project
+
+* How to structure **AI pipelines**
+* Difference between **single-call vs multi-agent systems**
+* Using **LangChain for chaining logic**
+* Building **self-improving AI systems**
+
+---
+
+## 🚀 Next Steps
+
+* 🔁 Add iterative improvement loop (Day 3)
+* 📊 Add scoring system for answers
+* 🌐 Build API interface using FastAPI
+* 🧠 Add memory to AI agents
+
+---
+
+## ⭐ If you found this useful, give it a star!
