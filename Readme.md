@@ -1,145 +1,162 @@
 # 🚀 AI Reflection System
 
-A multi-step AI pipeline that **generates, critiques, and improves its own responses** using LLMs.
+An evolving AI system that **generates, evaluates, and improves its own answers** — step by step.
 
 ---
 
-## 📌 Overview
+## 🧠 Project Overview
 
-This project demonstrates how to build **self-improving AI systems** by structuring multiple reasoning steps instead of relying on a single response.
+This project explores how to build **smarter AI pipelines** instead of just calling an API.
+
+Each day adds a new capability:
+
+* From simple responses → to reasoning → to self-evaluation → to safety control
 
 ---
 
-## 🧠 Key Idea
+## 📅 Progress Breakdown
 
-Instead of asking AI for a single answer:
+### 🔹 Day 1 — Basic AI Response
+
+* Simple LLM call using OpenRouter API
+* Takes a question → returns an answer
+
+---
+
+### 🔹 Day 2 — Writer → Critic → Improver
+
+* AI generates an answer
+* AI reviews its own answer
+* AI improves based on feedback
+
+👉 Introduced **multi-step reasoning pipeline**
+
+---
+
+### 🔹 Day 3 — Confidence Score
+
+* AI now returns:
+
+  * answer
+  * confidence (0–100)
+  * reason
+
+👉 Added **self-awareness layer**
+
+---
+
+### 🔹 Day 4 — Hallucination Control 🛡️
+
+* System checks AI confidence before trusting it
+
+#### Logic:
+
+* If confidence < 60 → ❌ "I don't know"
+* If confidence ≥ 60 → ✅ Show answer
+
+👉 Prevents unreliable or hallucinated responses
+👉 Introduces **AI safety + guardrails**
+
+---
+
+## ⚙️ How It Works
 
 ```text
-User → AI → Final Answer ❌
-```
-
-We build a smarter system:
-
-```text
-User → Writer → Critic → Improved Answer ✅
-```
-
----
-
-## 📅 Project Progress
-
-### 🔹 Day 1 — Reflection System
-
-* Built a basic AI pipeline
-* AI generates → reviews → improves
-* Single model handles all steps
-
----
-
-### 🔹 Day 2 — Writer + Critic System
-
-* Introduced **multi-agent architecture**
-* Separated roles:
-
-  * ✍️ Writer → generates answer
-  * 🧠 Critic → analyzes and finds issues
-  * 🔁 Improver → refines the answer
-* Used **LangChain chains** for modular design
-
----
-
-## ⚙️ Tech Stack
-
-* 🐍 Python
-* 🔗 LangChain
-* 🌐 OpenRouter API
-* ⚡ Requests
-
----
-
-## 🧩 Project Structure
-
-```
-ai-reflection-system/
- ├── day1_reflection_system/
- │    └── main.py
- ├── day2_writer_critic/
- │    └── day2.py
- ├── README.md
- ├── requirements.txt
+User Question
+     ↓
+Prompt Engineering (rules + format)
+     ↓
+LLM Response (answer + confidence + reason)
+     ↓
+JSON Parsing
+     ↓
+Control Logic (confidence check)
+     ↓
+Final Answer (safe output)
 ```
 
 ---
 
-## 🚀 How to Run
+## 🛠️ Tech Stack
 
-### 1. Clone the repo
-
-```
-git clone https://github.com/agarwalpranav0711/ai-reflection-system.git
-cd ai-reflection-system
-```
-
----
-
-### 2. Install dependencies
-
-```
-pip install -r requirements.txt
-```
+* Python
+* OpenRouter API (LLMs)
+* Requests
+* JSON parsing
+* dotenv
 
 ---
 
-### 3. Add API Key
+## 🔐 Environment Setup
 
 Create a `.env` file:
 
-```
+```env
 OPENROUTER_API_KEY=your_api_key_here
 ```
 
 ---
 
-### 4. Run
+## ▶️ Run the Project
 
-#### Day 1:
-
-```
-python day1_reflection_system/main.py
-```
-
-#### Day 2:
-
-```
-python day2_writer_critic/day2.py
+```bash
+cd day4_hallucination_control
+python main.py
 ```
 
 ---
 
-## 🔥 Example Flow
+## 📌 Example
+
+**Input:**
 
 ```
-Question → Writer → Critic → Improved Answer
+Who is the king of Mars?
+```
+
+**Output:**
+
+```
+"I don't know"
 ```
 
 ---
 
-## 🧠 What You Learn From This Project
+**Input:**
 
-* How to structure **AI pipelines**
-* Difference between **single-call vs multi-agent systems**
-* Using **LangChain for chaining logic**
-* Building **self-improving AI systems**
+```
+What is machine learning?
+```
+
+**Output:**
+
+```
+Machine learning is a type of artificial intelligence...
+```
+
+---
+
+## 🎯 Key Learnings
+
+* Prompt engineering is critical
+* AI outputs are not always reliable
+* Systems must **validate AI responses**
+* Confidence-based filtering improves safety
 
 ---
 
 ## 🚀 Next Steps
 
-* 🔁 Add iterative improvement loop (Day 3)
-* 📊 Add scoring system for answers
-* 🌐 Build API interface using FastAPI
-* 🧠 Add memory to AI agents
+* 🔁 Day 5 — Self-improving loop
+* 🔍 Better validation strategies
+* 📊 Confidence calibration
 
 ---
 
-## ⭐ If you found this useful, give it a star!
+## 👨‍💻 Author
+
+Pranav Agarwal
+
+---
+
+⭐ If you found this interesting, consider giving a star!
