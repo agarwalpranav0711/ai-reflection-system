@@ -1,16 +1,20 @@
 # 🚀 AI Reflection System
 
-An evolving AI system that **generates, evaluates, and improves its own answers** — step by step.
+An evolving AI system that **generates, evaluates, improves, and remembers its own answers** — step by step.
 
 ---
 
 ## 🧠 Project Overview
 
-This project explores how to build **smarter AI pipelines** instead of just calling an API.
+This project focuses on building **intelligent AI pipelines**, not just basic API calls.
 
-Each day adds a new capability:
+Each day introduces a new capability:
 
-* From simple responses → to reasoning → to self-evaluation → to safety control
+* From simple responses
+* → to reasoning
+* → to self-evaluation
+* → to safety control
+* → to memory-based conversations
 
 ---
 
@@ -19,7 +23,8 @@ Each day adds a new capability:
 ### 🔹 Day 1 — Basic AI Response
 
 * Simple LLM call using OpenRouter API
-* Takes a question → returns an answer
+* Input → Question
+* Output → Answer
 
 ---
 
@@ -29,13 +34,13 @@ Each day adds a new capability:
 * AI reviews its own answer
 * AI improves based on feedback
 
-👉 Introduced **multi-step reasoning pipeline**
+👉 Introduced **multi-step AI pipeline**
 
 ---
 
 ### 🔹 Day 3 — Confidence Score
 
-* AI now returns:
+* AI returns:
 
   * answer
   * confidence (0–100)
@@ -47,32 +52,53 @@ Each day adds a new capability:
 
 ### 🔹 Day 4 — Hallucination Control 🛡️
 
-* System checks AI confidence before trusting it
+* System checks confidence before trusting AI
 
 #### Logic:
 
 * If confidence < 60 → ❌ "I don't know"
 * If confidence ≥ 60 → ✅ Show answer
 
-👉 Prevents unreliable or hallucinated responses
-👉 Introduces **AI safety + guardrails**
+👉 Introduced **AI safety + guardrails**
 
 ---
 
-## ⚙️ How It Works
+### 🔹 Day 5 — Step-by-Step Reasoning 🧠
+
+* Compared:
+
+  * normal answers
+  * step-by-step reasoning answers
+
+👉 Forces AI to **think before answering**
+
+---
+
+### 🔹 Day 6 — Memory System 🗂️
+
+* Stores past Q&A in a JSON file
+* Uses previous conversations in new responses
+
+👉 Introduced **stateful AI (memory-based system)**
+
+---
+
+## ⚙️ System Flow
 
 ```text
 User Question
      ↓
-Prompt Engineering (rules + format)
+Prompt Engineering (rules + memory)
      ↓
-LLM Response (answer + confidence + reason)
+LLM Response
      ↓
 JSON Parsing
      ↓
-Control Logic (confidence check)
+Control Logic (confidence / safety)
      ↓
-Final Answer (safe output)
+Memory Storage (Day 6)
+     ↓
+Final Answer
 ```
 
 ---
@@ -82,8 +108,9 @@ Final Answer (safe output)
 * Python
 * OpenRouter API (LLMs)
 * Requests
-* JSON parsing
+* JSON
 * dotenv
+* LangChain (Day 2)
 
 ---
 
@@ -99,8 +126,10 @@ OPENROUTER_API_KEY=your_api_key_here
 
 ## ▶️ Run the Project
 
+### Example (Day 6 Memory System):
+
 ```bash
-cd day4_hallucination_control
+cd day6_memory
 python main.py
 ```
 
@@ -111,45 +140,41 @@ python main.py
 **Input:**
 
 ```
-Who is the king of Mars?
+My name is Pranav
+```
+
+**Next Input:**
+
+```
+What is my name?
 ```
 
 **Output:**
 
 ```
-"I don't know"
+Your name is Pranav.
 ```
 
----
-
-**Input:**
-
-```
-What is machine learning?
-```
-
-**Output:**
-
-```
-Machine learning is a type of artificial intelligence...
-```
+👉 Shows memory working
 
 ---
 
 ## 🎯 Key Learnings
 
-* Prompt engineering is critical
-* AI outputs are not always reliable
-* Systems must **validate AI responses**
-* Confidence-based filtering improves safety
+* Prompt engineering is powerful
+* AI needs validation layers
+* Confidence helps control hallucination
+* Memory makes AI conversational
+* Systems > single API calls
 
 ---
 
-## 🚀 Next Steps
+## 🚀 Future Improvements
 
-* 🔁 Day 5 — Self-improving loop
-* 🔍 Better validation strategies
+* 🔍 Smart memory (vector search / FAISS)
+* 🧠 Better reasoning control
 * 📊 Confidence calibration
+* 🤖 Multi-agent systems
 
 ---
 
@@ -159,4 +184,4 @@ Pranav Agarwal
 
 ---
 
-⭐ If you found this interesting, consider giving a star!
+⭐ If you found this useful, consider giving a star!
